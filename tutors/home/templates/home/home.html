@@ -1,0 +1,43 @@
+{% extends 'base.html' %}
+{%load static%}
+
+{% block content %}
+<div class="row">
+    <img src='{% static "accounts/images/bruceBanner.jpg" %}' id="bruceBanner"/>
+</div>
+        {% for user in users %}
+        <ul>
+          <fieldset class="container profileBox">
+          <div class = "red-text text-center">
+            <h3><a href="{% url 'accounts:view_profile_with_pk' pk=user.pk %}"> {{user.userprofile.first_name}} {{user.userprofile.last_name}}</a>
+            </h3>
+          </div>
+            <div class="col-md-3 headSpace">
+              {% if user.userprofile.image %}
+                  <img src="{{ user.userprofile.image.url }}" class="userImg">
+              {% endif %}
+            </div>
+            <div class="">
+              <h3 class="">{{user.userprofile.title}}</h3>
+              <div class="">Tutor's charge: {{user.userprofile.charge}}$/hour</div>
+              <div class="">
+                Located in: {{user.userprofile.area}}
+              <div class="">
+                  Tutors in the following subject(s):
+                  {%for subject in user.userprofile.subject.all %}
+                  <a href = "{{subject.get_absolute_url}}">
+                    {{subject}}
+                  </a>
+                  {% if not forloop.last %},
+                  {%endif%}
+                  {%endfor%}
+                </div>
+                </div>
+            </div>
+              <a href="{% url 'accounts:view_profile_with_pk' pk=user.pk %}"><button type="submit" class="submit">More details</button></a>
+            </div>
+          </div>
+          </fieldset>
+      </ul>
+        {% endfor %}
+        {% endblock %}

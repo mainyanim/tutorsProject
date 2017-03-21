@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block head %}
+<title>Profile</title>
+{% endblock %}
+
+{% block body %}
+<div class = "container max600">
+<form method="POST">
+  {% csrf_token %}
+  <p>
+    <strong>Enter new username:</strong> {{form.username}}
+  </p>
+  <p>
+    <strong>Enter new email:</strong> {{form.email}}
+  </p>
+  <button type="submit" class="submit">Submit</button>
+</form>
+</div>
+{% endblock %}

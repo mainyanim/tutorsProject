@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if subject %}
+<h1>These tutors can teach you {{subject.name}}:</h1>
+<div class = "container">
+  <ul>
+    {%for user in subject.tutor_type.all %}
+    <li>
+      <a href="{% url 'accounts:view_profile_with_pk' pk=user.pk %}">
+        {{user.first_name}}
+        {{user.last_name}},
+          </a>
+        </p>
+        <p>
+          {{user.description}}
+        </p>
+        <p>
+          ({{user.area}})
+        </p>
+    </li>
+
+    {%endfor%}
+  </ul>
+  </div>
+{% else %}
+  <p>There are no tutors in the database.</p>
+{% endif %}
+
+
+
+{% endblock %}

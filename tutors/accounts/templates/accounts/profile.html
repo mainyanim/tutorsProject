@@ -1,0 +1,53 @@
+{% extends "base.html" %}
+
+
+{% block content %}
+<h1>Profile</h1>
+<fieldset class = "container profileBox">
+  <div class = "col-md-3">
+    {% if user.userprofile.image %}
+        <img src="{{ user.userprofile.image.url }}" height="300">
+    {% endif %}
+  </div>
+  <div class = "red-text text-right">
+    <p>Username: {{user.username}}
+    </p>
+    <p>
+      Email: {{user.email}}
+    </p>
+    <p>
+      Title: {{user.userprofile.title}}
+    </p>
+    <p>
+      First Name: {{user.userprofile.first_name}}
+    </p>
+    <p>
+      Last Name: {{user.userprofile.last_name}}
+    </p>
+    <p>
+      Description: {{user.userprofile.description}}
+    </p>
+    <p>
+    Subject:
+        {%for subject in user.userprofile.subject.all %}
+        <a href = "{{subject.get_absolute_url}}">
+          {{subject}}
+        </a>
+        {% if not forloop.last %},
+        {%endif%}
+        {%endfor%}
+    </p>
+    <p>
+      Area: {{user.userprofile.area}}
+    </p>
+    <p>
+      Charge: {{user.userprofile.charge}}
+    </p>
+    <p>
+      Language: {{user.userprofile.language}}
+    </p>
+  </div>
+</fieldset>
+
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if form.errors %}
+<h3 class = "hello-text">Your username or email already exists. Please try again <a href="{% url 'accounts:register' %}">here</a>.</h3>
+{% else %}
+<div class="container max600">
+  <form method = "POST">
+    {% csrf_token %}
+    {{form.as_p}}
+    <button type="submit" class="submit">Register</button>
+  </form>
+</div>
+{%endif%}
+{% endblock %}

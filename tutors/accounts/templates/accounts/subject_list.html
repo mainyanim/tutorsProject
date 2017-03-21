@@ -1,0 +1,21 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Subject List</h1>
+{% if subject_list %}
+  {% for subject in subject_list %}
+  <ul>
+    <div class = "red-text text-center">
+      <a href="{{ subject.get_absolute_url}}">
+      {{ subject }}
+      </a>
+  </div>
+  </ul>
+
+  {% endfor %}
+
+{% else %}
+  <p>There are no subjects available.</p>
+{% endif %}
+{% endblock %}
