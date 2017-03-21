@@ -22,7 +22,6 @@ def register(request):
     if request.method =='POST':
         form = RegistrationForm(request.POST)
         if form.is_valid():
-            new_user = UserProfile.objects.create_user(**form.cleaned_data)
             form.save()
             return redirect(reverse('accounts:login'))
     else:
