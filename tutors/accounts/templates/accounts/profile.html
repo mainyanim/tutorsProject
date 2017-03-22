@@ -1,6 +1,6 @@
 {% extends "base.html" %}
 
-
+{%load ratings%}
 {% block content %}
 <h1>Profile</h1>
 <fieldset class = "container profileBox">
@@ -8,7 +8,9 @@
     {% if user.userprofile.image %}
         <img src="{{ user.userprofile.image.url }}" height="300">
     {% endif %}
+    {% ratings user %}
   </div>
+
   <div class = "red-text text-right">
     <p>Username: {{user.username}}
     </p>
