@@ -4,18 +4,21 @@
 
 <h1>Subject List</h1>
 {% if subject_list %}
-  {% for subject in subject_list %}
-  <ul>
-    <div class = "red-text text-center">
-      <a href="{{ subject.get_absolute_url}}">
-      {{ subject }}
-      </a>
-  </div>
-  </ul>
-
-  {% endfor %}
-
-{% else %}
+<div class = "col-xs-6 center-block" style="float:none;">
+    <div class="d-flex w-100 justify-content-between">
+      {% for subject in subject_list %}
+      <a href="{{ subject.get_absolute_url}}" class="list-group-item list-group-item-action flex-column align-items-start">
+        <h4 class="mb-1">{{ subject }}</h4>
+        {%if not subject.tutor_type.all.count%}
+        <h4>Sorry, there are no tutors in the database yet.</h4>
+        {%else%}
+        <h5>{{subject.tutor_type.all.count}} tutor(s) available.</h5>
+        <br />
+        <small>Click here to see available tutors.</small></a>
+        {%endif%}
+        {% endfor %}
+  {% else %}
   <p>There are no subjects available.</p>
+</div>
 {% endif %}
 {% endblock %}
