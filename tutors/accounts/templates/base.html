@@ -71,13 +71,12 @@
         </div><!-- /.navbar-collapse -->
       </div><!-- /.container-fluid -->
     </nav>
-        {% load ratings %}
         {% block content %}
         {% endblock %}
         {% block body %}
         {% endblock %}
     <!-- The content of your page would go here. -->
-
+    <script src="{% static 'accounts/js/index.js' %}" type="text/javascript"></script>
     <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
   </body>
 </html>
