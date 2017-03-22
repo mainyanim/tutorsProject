@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'widget_tweaks',
     'phonenumber_field',
+    'star_ratings',
 ]
 
 MIDDLEWARE = [

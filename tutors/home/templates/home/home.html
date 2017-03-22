@@ -1,6 +1,6 @@
 {% extends 'base.html' %}
 {%load static%}
-
+{% load ratings %}
 {% block content %}
 <div class="row">
     <img src='{% static "accounts/images/bruceBanner.jpg" %}' id="bruceBanner"/>
@@ -16,6 +16,7 @@
               {% if user.userprofile.image %}
                   <img src="{{ user.userprofile.image.url }}" class="userImg">
               {% endif %}
+              {% ratings user %}
             </div>
             <div class="">
               <h3 class="">{{user.userprofile.title}}</h3>

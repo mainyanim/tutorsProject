@@ -5,6 +5,8 @@ from django.db.models.signals import post_save
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
 
+
+
 class Subject(models.Model):
     """
     Model representing a subject (e.g. Math, Chemisty etc.).
