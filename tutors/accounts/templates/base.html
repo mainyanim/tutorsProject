@@ -30,13 +30,13 @@
               <a href="{% url 'accounts:edit_profile' %}">Edit Account Info</a>
               <a href="{% url 'accounts:edit_user' %}">Edit Profile</a>
               <a href="{% url 'accounts:change_password' %}">Change Password</a>
-              <a href="{% url 'accounts:logout' %}" class="floatMe">Log out</a>
+              <a href="{% url 'accounts:logout' %}" class="navbar-right">Log out</a>
           {% else %}
           <nav class="nav navbar-nav">
               <li><a href="{% url 'accounts:subjects' %}">All subjects</a>
           </nav>
-          <ul class="nav navbar-nav navbar-right">
-            <a href="{% url 'accounts:login' %}" class="floatMe">Login</a>
+          <ul class="nav navbar-nav">
+            <a href="{% url 'accounts:login' %}" class="navbar-right">Login</a>
             <a href="{% url 'accounts:register' %}">Register</a>
             <a href="{% url 'accounts:reset_password' %}">Reset Password</a>
           </ul>

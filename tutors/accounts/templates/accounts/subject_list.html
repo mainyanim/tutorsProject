@@ -10,7 +10,7 @@
       <a href="{{ subject.get_absolute_url}}" class="list-group-item list-group-item-action flex-column align-items-start">
         <h4 class="mb-1">{{ subject }}</h4>
         {%if not subject.tutor_type.all.count%}
-        <h4>Sorry, there are no tutors in the database yet.</h4>
+        <h4>Sorry, there are no tutors for this subject yet.</h4>
         {%else%}
         <h5>{{subject.tutor_type.all.count}} tutor(s) available.</h5>
         <br />

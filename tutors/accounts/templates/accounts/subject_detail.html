@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {%load static%}
 {% load ratings %}
+
 {% block content %}
 {% if subject %}
 <h1>These tutors can teach you: {{subject.name}}</h1>
@@ -19,6 +20,7 @@
                   {% if user.image %}
                       <img src="{{ user.image.url }}"  alt="" class="img-rounded img-responsive"/>
                   {% endif %}
+                  {% ratings user %}
                 </div>
                 <div class="col-sm-6 col-md-8">
                     <p>
