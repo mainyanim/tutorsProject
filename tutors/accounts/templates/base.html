@@ -9,6 +9,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <link rel='stylesheet prefetch' href='http://fonts.googleapis.com/css?family=Open+Sans'>
+    <link rel = "stylesheet" href = "https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
 
     <!-- Add additional CSS in static file -->
     {% load static %}
@@ -29,13 +30,13 @@
               <a href="{% url 'accounts:edit_profile' %}">Edit Account Info</a>
               <a href="{% url 'accounts:edit_user' %}">Edit Profile</a>
               <a href="{% url 'accounts:change_password' %}">Change Password</a>
-              <a href="{% url 'accounts:logout' %}">Log out</a>
+              <a href="{% url 'accounts:logout' %}" class="floatMe">Log out</a>
           {% else %}
           <nav class="nav navbar-nav">
               <li><a href="{% url 'accounts:subjects' %}">All subjects</a>
           </nav>
           <ul class="nav navbar-nav navbar-right">
-            <a href="{% url 'accounts:login' %}">Login</a>
+            <a href="{% url 'accounts:login' %}" class="floatMe">Login</a>
             <a href="{% url 'accounts:register' %}">Register</a>
             <a href="{% url 'accounts:reset_password' %}">Reset Password</a>
           </ul>

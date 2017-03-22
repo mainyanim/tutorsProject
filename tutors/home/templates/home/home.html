@@ -2,43 +2,56 @@
 {%load static%}
 {% load ratings %}
 {% block content %}
-<div class="row">
+<div class="jumbotron">
     <img src='{% static "accounts/images/bruceBanner.jpg" %}' id="bruceBanner"/>
 </div>
-        {% for user in users %}
-        <ul>
-          <fieldset class="container profileBox">
-          <div class = "red-text text-center">
-            <h3><a href="{% url 'accounts:view_profile_with_pk' pk=user.pk %}"> {{user.userprofile.first_name}} {{user.userprofile.last_name}}</a>
-            </h3>
+{% for user in users %}
+<ul>
+<div class="container-fluid">
+<div class="row">
+<div class="col-xs-6 center-block" style="float:none;">
+<div class="well well-md">
+<h2 class ="red-text text-center titleTag">
+  <a href="{% url 'accounts:view_profile_with_pk' pk=user.pk %}"> {{user.userprofile.first_name}} {{user.userprofile.last_name}}</a>
+</h2>
+  <div class="row">
+      <div class="col-sm-6 col-md-4">
+        {% if user.userprofile.image %}
+            <img src="{{ user.userprofile.image.url }}"  alt="" class="img-rounded img-responsive"/>
+        {% endif %}
+        {% ratings user %}
+      </div>
+      <div class="col-sm-6 col-md-8">
+
+          <p>
+            <i class="glyphicon glyphicon-envelope"></i>
+            Tutors in the following subject(s):
+            <br />
+            {%for subject in user.userprofile.subject.all %}
+            <a href = "{{subject.get_absolute_url}}">
+              {{subject}}
+            </a>
+            {% if not forloop.last %},
+            {%endif%}
+            {%endfor%}
+            <br />
+            <br/>
+            <i class="fa fa-ils"></i>
+            Cost per hour: {{user.userprofile.charge}}
+            <br />
+            <br />
+            <i class="glyphicon glyphicon-map-marker"></i> {{user.userprofile.area}}
+          </p>
+
+          <!-- Split button -->
+          <div class="btn-group">
+                <a href="{% url 'accounts:view_profile_with_pk' pk=user.pk %}"><button type="submit" class="submit">More details</button></a>
           </div>
-            <div class="col-md-3 headSpace">
-              {% if user.userprofile.image %}
-                  <img src="{{ user.userprofile.image.url }}" class="userImg">
-              {% endif %}
-              {% ratings user %}
-            </div>
-            <div class="">
-              <h3 class="">{{user.userprofile.title}}</h3>
-              <div class="">Tutor's charge: {{user.userprofile.charge}}$/hour</div>
-              <div class="">
-                Located in: {{user.userprofile.area}}
-              <div class="">
-                  Tutors in the following subject(s):
-                  {%for subject in user.userprofile.subject.all %}
-                  <a href = "{{subject.get_absolute_url}}">
-                    {{subject}}
-                  </a>
-                  {% if not forloop.last %},
-                  {%endif%}
-                  {%endfor%}
-                </div>
-                </div>
-            </div>
-              <a href="{% url 'accounts:view_profile_with_pk' pk=user.pk %}"><button type="submit" class="submit">More details</button></a>
-            </div>
-          </div>
-          </fieldset>
-      </ul>
-        {% endfor %}
-        {% endblock %}
+      </div>
+  </div>
+</div>
+</div>
+</div>
+</div>
+{% endfor %}
+{% endblock %}
