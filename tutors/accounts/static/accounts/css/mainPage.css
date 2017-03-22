@@ -513,11 +513,11 @@ label, input {
 }
 
 .bs-callout-danger {
-    border-left-color: #d9534f;
+    border-left-color: #d4af7a;
 }
 
 .bs-callout-danger h4{
-    color: #d9534f;
+    color: #d4af7a;
 }
 
 .resume .list-group-item:first-child, .resume .list-group-item:last-child{
