@@ -1,12 +1,10 @@
 {% extends 'base.html' %}
-{%load static%}
-{% load ratings %}
-
+{% load static %}
 {% block content %}
 {% if subject %}
+
 <h1>These tutors can teach you: {{subject.name}}</h1>
 <div class = "container">
-  <ul>
     {% for user in subject.tutor_type.all %}
     <div class="container-fluid">
       <div class="row">
@@ -20,6 +18,7 @@
                   {% if user.image %}
                       <img src="{{ user.image.url }}"  alt="" class="img-rounded img-responsive"/>
                   {% endif %}
+                  {% load ratings %}
                   {% ratings user %}
                 </div>
                 <div class="col-sm-6 col-md-8">
@@ -52,7 +51,6 @@
       </div>
     </div>
     {%endfor%}
-  </ul>
   </div>
 {% else %}
   <p>There are no tutors in the database.</p>

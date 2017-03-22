@@ -100,6 +100,9 @@ class SubjectDetailView(generic.DetailView):
     Generic class-based detail view for a tutor.
     """
     model = Subject
+    users = User.objects.all()
+    args = {'users': users }
+
 
 class SubjectListView(generic.ListView):
     """
