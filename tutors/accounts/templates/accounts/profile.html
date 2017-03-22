@@ -1,6 +1,5 @@
 {% extends "base.html" %}
 
-{%load ratings%}
 {% block content %}
 <h1>{{user.username}}'s Profile:</h1>
 <div class="container">
@@ -15,6 +14,7 @@
                              {% if user.userprofile.image %}
                                  <img src="{{ user.userprofile.image.url }}" width="300px">
                              {% endif %}
+                             {%load ratings%}
                              {% ratings user %}
                            </figure>
                            <div class="row">

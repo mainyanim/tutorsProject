@@ -1,6 +1,5 @@
 {% extends 'base.html' %}
 {%load static%}
-{% load ratings %}
 {% block content %}
 <div class="jumbotron">
     <img src='{% static "accounts/images/bruceBanner.jpg" %}' id="bruceBanner"/>
@@ -18,6 +17,7 @@
               {% if user.userprofile.image %}
                   <img src="{{ user.userprofile.image.url }}"  alt="" class="img-rounded img-responsive"/>
               {% endif %}
+              {% load ratings %}
               {% ratings user %}
             </div>
             <div class="col-sm-6 col-md-8">

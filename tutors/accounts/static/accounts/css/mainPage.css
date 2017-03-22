@@ -12,6 +12,10 @@ body {
   padding: 0;
 }
 
+.nomargin{
+  margin-bottom: 0px;
+}
+
 input, button {
   border: none;
   outline: none;
